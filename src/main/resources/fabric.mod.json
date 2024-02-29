@@ -32,6 +32,7 @@
 	],
 	"accessWidener": "configurable-item-cooldown.accesswidener",
 	"depends": {
-		"minecraft": "${supportedMinecraftVersions}"
+		"minecraft": "${supportedMinecraftVersions}",
+		"monkeylib538": ">=${monkeylib538Version}"
 	}
 }

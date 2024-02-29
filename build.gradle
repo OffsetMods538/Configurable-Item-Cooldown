@@ -61,24 +61,35 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven {
+		name = "JitPack"
+		url = "https://jitpack.io"
+		content {
+			includeGroup "top.offsetmonkey538"
+		}
+	}
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_version}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	modImplementation "top.offsetmonkey538:monkeylib538:${project.monkeylib538_version}"
 }
 
 processResources {
 	inputs.properties(Map.of(
 			"modVersion",                 project.mod_version,
-			"supportedMinecraftVersions", project.supported_minecraft_versions
+			"supportedMinecraftVersions", project.supported_minecraft_versions,
+			"monkeylib538Version",        project.monkeylib538_version
 	))
 
 	filesMatching("fabric.mod.json") {
 		expand(Map.of(
 				"modVersion",                 project.mod_version,
-				"supportedMinecraftVersions", project.supported_minecraft_versions
+				"supportedMinecraftVersions", project.supported_minecraft_versions,
+				"monkeylib538Version",        project.monkeylib538_version
 		))
 	}
 
@@ -117,6 +128,7 @@ modrinth {
 	}
 
 	dependencies {
+		required.project "monkeylib538"
 	}
 }
 
