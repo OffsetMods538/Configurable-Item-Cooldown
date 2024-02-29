@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "configurable-item-cooldown",
+	"version": "${modVersion}",
+	"name": "Configurable Item Cooldown",
+	"description": "Makes the cooldown of items like enderpearls fully configurable.",
+	"authors": [
+		"OffsetMonkey538"
+	],
+	"contact": {
+		"sources": "https://github.com/OffsetMods538/Configurable-Item-Cooldown",
+		"issues": "https://github.com/OffsetMods538/Configurable-Item-Cooldown/issues",
+		"homepage": "https://modrinth.com/mod/configurable-item-cooldown"
+	},
+	"license": "MIT",
+	"icon": "assets/configurable-item-cooldown/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"top.offsetmonkey538.configurableitemcooldown.ConfigurableItemCooldown"
+		],
+		"client": [
+			"top.offsetmonkey538.configurableitemcooldown.ConfigurableItemCooldownClient"
+		]
+	},
+	"mixins": [
+		"configurable-item-cooldown.mixins.json",
+		{
+			"config": "configurable-item-cooldown.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"accessWidener": "configurable-item-cooldown.accesswidener",
+	"depends": {
+		"minecraft": "${supportedMinecraftVersions}"
+	}
+}
